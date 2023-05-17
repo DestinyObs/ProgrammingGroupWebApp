@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CodingMeetUp>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <script src="/docs/5.3/assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+
+
+
+</head>
+<body>
+
+    <div class="row mb-2">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">@item.Title</h3>
+                        <div class="mb-1 text-body-secondary">@item.MeetUpCategory</div>
+                        <div class="mb-1 text-body-secondary">@item.Language</div>
+                        <p class="card-text mb-auto">@item.Description</p>
+
+                        <div class="btn-group">
+                            <a asp-controller="MeetUp" asp-action="Detail" asp-route-id="@item.Id"
+                               class="btn btn-sm btn-outline-secondary" style="width: 30px">View</a>
+                            &nbsp;
+                            &nbsp;
+                            <a asp-controller="MeetUp" asp-action="Edit" asp-route-id="@item.Id"
+                               class="btn btn-sm btn-outline-secondary" style="width: 30px">Edit</a>
+                        </div>
+
+                        
+
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        @*<img class="card-img-top" src="@item.Image" width="100%" height="225" alt="Card image cap">*@
+                        <img class="bd-placeholder-img" width="300" height="250" role="img" src="@item.Image">
+                        <rect width="100%" height="100%" fill="#55595c" />
+                        <text x="50%" y="50%" fill="#eceeef" dy=".3em">@item.Language</text>
+
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</body>
+</html>

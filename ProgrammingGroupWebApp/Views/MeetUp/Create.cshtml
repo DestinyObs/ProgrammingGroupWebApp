@@ -1,0 +1,57 @@
+﻿@model MeetUpViewModel
+@using ProgrammingGroupWebApp.Data.ENUM;
+@using ProgrammingGroupWebApp.ViewModel;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Title">Title</label>
+        <input asp-for="Title" class="form-control" placeholder="Title">
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Language.Name">Name of Group</label>
+        <input asp-for="Language.Name" class="form-control" placeholder="Name">
+        <span asp-validation-for="Language.Name" class="text-danger"></span>
+        <div class="form-group">
+            <div class="form-group">
+                <label asp-for="Language.Language">Language Written </label>
+                <input asp-for="Language.Language" class="form-control" placeholder="Language">
+                <span asp-validation-for="Language.Language" class="text-danger"></span>
+                <div class="form-group">
+                    <label asp-for="Description">Description</label>
+                    <input asp-for="Description" class="form-control" placeholder="Description">
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="meetUpCategory">MeetUp Category</label>
+                    <select asp-for="meetUpCategory" class="form-control" asp-items="@Html.GetEnumSelectList<MeetUpCategory>()">
+                        <option>---Select---</option>
+                    </select>
+                    <span asp-validation-for="meetUpCategory" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Language.City">City</label>
+                    <input asp-for="Language.City" class="form-control" placeholder="City">
+                    <span asp-validation-for="Language.City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Language.Description">Level Description</label>
+                    <input asp-for="Language.Description" class="form-control" placeholder="Level Description">
+                    <span asp-validation-for="Language.Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image">Image</label>
+                    <input asp-for="Image" type="file" class="form-control" placeholder="Image">
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+</form>
